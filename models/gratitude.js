@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const GratitudeSchema = new Schema({
   title: { type: String, required: true },
   author: { type: String, required: true },
-  quote: String,
+  body: String,
   date: { type: Date, default: Date.now }
 });
 
