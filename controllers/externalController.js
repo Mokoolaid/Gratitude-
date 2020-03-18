@@ -8,33 +8,9 @@ const db = require("../models");
 // It also makes sure that the qoutes returned from the API all contain a title, author, link, description, and image
 module.exports = {
   findAll: function(req, res) {
-    const { query: params } = req;
-    axios
-      .get("https://rapidapi.com/collection/quote-generator-apis", {
-        params
-      })
-      .then(results =>
-        results.data.items.filter(
-          result =>
-            result.quoteInfo.title &&
-            result.quoteInfo.infoLink &&
-            result.quoteInfo.authors &&
-            result.quoteInfo.description &&
-            result.quoteInfo.imageLinks &&
-            result.quoteInfo.imageLinks.thumbnail
-        )
-      )
-      .then(apiGratitude =>
-        db.Gratitude.find().then(dbGratitude =>
-          apiGratitude.filter(apiGratitude =>
-            dbGratitude.every(
-              dbGratitude => dbGratitude.googleId.toString() !== apiGratitude.id
-            )
-          )
-        )
-      )
-      .then(gratitudes => res.json(gratitudes))
-      .catch(err => res.status(422).json(err));
+    axios.get("https://type.fit/api/quotes").then(function(results) {
+      res.json(results.data);
+    });
   },
   insertOne: function(data) {
     db.Gratitude.insertOne(data).then(response => res.json(response));

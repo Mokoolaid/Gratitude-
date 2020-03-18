@@ -6,9 +6,9 @@ export default {
     return axios.get("/api/gratitudes");
   },
   // // Gets the gratitude item with the given id
-  // getgratitudes: function(id) {
-  //   return axios.get("/api/gratitiudes/" + id);
-  // },
+  getInspiration: function() {
+    return axios.get("/api/external/");
+  },
   // Deletes the gratitude item with the given id
 
   deleteGratitude: function(id) {
