@@ -5,7 +5,7 @@ const db = require("../models");
 
 // findAll searches the Radpid API and returns only the entries we haven't already saved
 
-// It also makes sure that the gratitudes returned from the API all contain a title, author, link, description, and image
+// It also makes sure that the qoutes returned from the API all contain a title, author, link, description, and image
 module.exports = {
   findAll: function(req, res) {
     const { query: params } = req;
@@ -16,12 +16,12 @@ module.exports = {
       .then(results =>
         results.data.items.filter(
           result =>
-            result.volumeInfo.title &&
-            result.volumeInfo.infoLink &&
-            result.volumeInfo.authors &&
-            result.volumeInfo.description &&
-            result.volumeInfo.imageLinks &&
-            result.volumeInfo.imageLinks.thumbnail
+            result.quoteInfo.title &&
+            result.quoteInfo.infoLink &&
+            result.quoteInfo.authors &&
+            result.quoteInfo.description &&
+            result.quoteInfo.imageLinks &&
+            result.quoteInfo.imageLinks.thumbnail
         )
       )
       .then(apiGratitude =>
