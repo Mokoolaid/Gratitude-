@@ -40,3 +40,10 @@ module.exports = {
     db.Gratitude.insertOne(data).then(response => res.json(response));
   }
 };
+// const { query: params } = req;
+// fetch("https://healthruwords.p.rapidapi.com/v1/quotes/?id=731&t=Wisdom&maxR=1&size=medium", {
+//     "method": "GET",
+//     "headers": {
+//         "x-rapidapi-host": "healthruwords.p.rapidapi.com",
+//         "x-rapidapi-key": "45da093d46msh009ff6cbf2c825bp121a16jsnbe612ecf89f5"
+//     }
