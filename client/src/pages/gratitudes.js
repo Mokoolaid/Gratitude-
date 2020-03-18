@@ -36,6 +36,12 @@ const Gratitudes = () => {
     console.log(formObject);
     API.saveGratitude(formObject).then(res => loadGratitudes());
   };
+  const handleDelete = id => {
+    console.log(id);
+    API.deleteGratitude(id).then(() => {
+      loadGratitudes();
+    });
+  };
 
   return (
     <Container fluid>
@@ -82,7 +88,7 @@ const Gratitudes = () => {
                         {gratitude.title} by {gratitude.author}
                       </strong>
                     </a>
-                    <DeleteBtn onClick={() => {}} />
+                    <DeleteBtn id={gratitude._id} handleDelete={handleDelete} />
                   </ListItem>
                 );
               })}
