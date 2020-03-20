@@ -13,7 +13,7 @@ module.exports = {
     });
   },
   insertOne: function(data) {
-    db.Gratitude.insertOne(data).then(response => res.json(response));
+    db.Inspiration.insertOne(data).then(response => res.json(response));
   }
 };
 // const { query: params } = req;

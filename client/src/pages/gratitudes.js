@@ -5,7 +5,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
-
+import "../styles/style.css";
 const Gratitudes = () => {
   // Setting our component's initial state
   const [gratitudes, setGratitudes] = useState([]);
@@ -15,7 +15,7 @@ const Gratitudes = () => {
     author: ""
   });
 
-  // Load all books and store them with setGratitudes
+  // Load all gratitudes and store them with setGratitudes
   useEffect(() => {
     loadGratitudes();
   }, []);
